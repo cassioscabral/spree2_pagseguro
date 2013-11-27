@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["cassioscabral@gmail.com"]
   s.homepage    = "https://github.com/cassioscabral/spree2_pagseguro"
   s.summary     = "Adaptação da gem spree_pag_seguro(https://github.com/heavenstudio/spree_pag_seguro) para a versão 2.1 do spree."
-  s.description = "TODO: Description of Spree2Pagseguro."
+  s.description = "Integra o spree 2-1 ao pagseguro"
   s.required_ruby_version = '>= 2.0.0'
   
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
