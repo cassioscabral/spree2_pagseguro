@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.version     = Spree2Pagseguro::VERSION
   s.authors     = ["Cassio Cabral"]
   s.email       = ["cassioscabral@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Spree2Pagseguro."
+  s.homepage    = "https://github.com/cassioscabral/spree2_pagseguro"
+  s.summary     = "Adaptação da gem spree_pag_seguro(https://github.com/heavenstudio/spree_pag_seguro) para a versão 2.1 do spree."
   s.description = "TODO: Description of Spree2Pagseguro."
   s.required_ruby_version = '>= 2.0.0'
   
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
 
   s.add_dependency "rails", "~> 4.0.1"
+  s.add_dependency "spree_core", "~> 2.1.3"
   s.add_dependency "pag_seguro", "~> 0.5.5"
 
   s.add_development_dependency "sqlite3"
