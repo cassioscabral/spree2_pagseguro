@@ -1,6 +1,6 @@
 module Spree
   class PaymentMethod::PagSeguroMethod < PaymentMethod
-    attr_protected
+    #attr_protected
     attr_accessor :order_id
     
     preference :email, :string
