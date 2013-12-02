@@ -3,10 +3,6 @@ module Spree
     preference :email, :string
     preference :token, :string
 
-
-    #adicionar atributos as listas de permitidos
-    #attr_accessible :preferred_moip_token, :preferred_moip_key, :preferred_currency, :preferred_moip_environment
-    
     def provider_class
       Spree::PagseguroPayment
     end
@@ -52,14 +48,14 @@ module Spree
     #   self.class
     # end
 
-    # def code(payment)
-    #   if payment.pag_seguro_payment.present?
-    #     payment.pag_seguro_payment.code
-    #   else
-    #     pag_seguro_payment = Spree::PagSeguroPayment.new
-    #     pag_seguro_payment.process!(payment)
-    #     pag_seguro_payment.code
-    #   end
-    # end
+    def code(payment)
+      if payment.pag_seguro_payment.present?
+        payment.pag_seguro_payment.code
+      else
+        pag_seguro_payment = Spree::PagSeguroPayment.new
+        pag_seguro_payment.process!(payment)
+        pag_seguro_payment.code
+      end
+    end
   end
 end
