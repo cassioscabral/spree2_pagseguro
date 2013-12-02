@@ -5,8 +5,9 @@ module Spree
     attr_protected
     
     def self.create_from_params(params)
-      email = Order.pag_seguro_payment_method.preferred_email
-      token = Order.pag_seguro_payment_method.preferred_token
+      order = current_order
+      email = order.available_payment_methods.last.preferred_email
+      token = order.available_payment_methods.last.preferred_token
       notification_code = params[:notificationCode]
       notification = ::PagSeguro::Notification.new(email, token, notification_code)
 

@@ -15,7 +15,7 @@ module Spree
           # 2. Can't use Order#total, as it's intercepted by spree-multi-currency
           # which might lead to lots of false "credit owed" payment states
           # (when they should be "complete")
-          @order.payment.complete
+          @order.finalize!
         end
       end
       
