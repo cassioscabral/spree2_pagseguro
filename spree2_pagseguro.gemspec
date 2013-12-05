@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
   s.require_path = 'lib'
 
-  s.add_dependency "rails", "~> 4.0.1"
+  s.add_dependency "rails", "~> 4.0.0"
   s.add_dependency "spree_core", "~> 2.1.3"
   s.add_dependency "pag_seguro", "~> 0.5.5"
 
