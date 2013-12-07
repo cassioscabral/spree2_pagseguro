@@ -23,8 +23,8 @@ module Spree
 
     private
 
-      def pagseguro_payment_method
-        Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
-      end
+    def pagseguro_payment_method
+      Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
+    end
   end
 end
