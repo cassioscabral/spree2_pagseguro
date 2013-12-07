@@ -2,6 +2,7 @@ module Spree
   module Spree2Pagseguro
     class Engine < Rails::Engine
       require 'spree/core'
+      #require 'pagseguro-oficial'
       engine_name 'spree2_pagseguro'
 
       config.autoload_paths += %W(#{config.root}/lib)
