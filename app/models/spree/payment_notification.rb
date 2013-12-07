@@ -4,7 +4,7 @@ module Spree
     serialize :params
 
     def self.create_from_params(params)
-      payment_method = pagseguro_payment_method
+      payment_method = Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
       email = payment_method.preferred_email
       token = payment_method.preferred_token
       notification_code = params[:notificationCode]
@@ -19,12 +19,6 @@ module Spree
       )
       
       notification
-    end
-
-    private
-
-    def pagseguro_payment_method
-      Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
     end
   end
 end
