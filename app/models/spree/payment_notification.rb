@@ -8,8 +8,9 @@ module Spree
       email = payment_method.preferred_email
       token = payment_method.preferred_token
       notification_code = params[:notificationCode]
-      notification = ::PagSeguro::Notification.new(email, token, notification_code)
-
+      puts "ISSO EH UMA NOTIFICATION CODE " + notification_code
+      notification = PagSeguro::Notification.new(email, token, notification_code)
+      puts "ISSO EH UMA NOTIFICATION  " + notification
       self.create!(
         params: params,
         order_id: notification.id,
