@@ -4,8 +4,8 @@ module Spree
     serialize :params
 
     def self.create_from_params(params)
-      email = order.available_payment_methods.last.preferred_email
-      token = order.available_payment_methods.last.preferred_token
+      email = Order.available_payment_methods.last.preferred_email
+      token = Order.available_payment_methods.last.preferred_token
       notification_code = params[:notificationCode]
       notification = ::PagSeguro::Notification.new(email, token, notification_code)
 
