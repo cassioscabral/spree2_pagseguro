@@ -2,9 +2,8 @@ module Spree
   class PaymentNotification < ActiveRecord::Base
     belongs_to :order
     serialize :params
-    include Spree::Core::ControllerHelpers::Order
+
     def self.create_from_params(params)
-      order = current_order
       email = order.available_payment_methods.last.preferred_email
       token = order.available_payment_methods.last.preferred_token
       notification_code = params[:notificationCode]

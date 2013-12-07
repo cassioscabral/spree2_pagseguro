@@ -2,7 +2,7 @@ module Spree
   class PagSeguroPayment < ActiveRecord::Base
     attr_accessor :order_id
     belongs_to :payment
-    include Spree::Core::ControllerHelpers::Order
+   
     def process!(payment)
       order = payment.order
       

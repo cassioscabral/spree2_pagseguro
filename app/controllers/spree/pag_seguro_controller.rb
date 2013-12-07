@@ -1,8 +1,9 @@
 module Spree
   class PagSeguroController < BaseController
-    protect_from_forgery :except => [:notify]
-    skip_before_filter :restriction_access
     include Spree::Core::ControllerHelpers::Order
+    protect_from_forgery :except => [:notify]
+    skip_before_filter :restriction_access  
+
     def notify
       notification = Spree::PaymentNotification.create_from_params(params)
       
