@@ -6,6 +6,6 @@ Spree::Order.class_eval do
   end
   
   def self.pag_seguro_payment_method
-    Spree::PaymentMethod.where(type: "Spree::PaymentMethod::PagSeguroMethod").first
+    Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
   end
 end

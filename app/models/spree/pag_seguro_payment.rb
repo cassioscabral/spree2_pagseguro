@@ -4,16 +4,18 @@ module Spree
     belongs_to :payment
    
     def process!(payment)
+      #para utilizar um link para o pagseguro pode utilizar o method helper pedido, acessando pedido[:code] no front
       order = payment.order
       
       redirect_url = Rails.env.development? ? nil : "#{Spree::Config.site_url}/pag_seguro/callback"
-
+      payment_method = Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
       pag_seguro_payment = ::PagSeguro::Payment.new(
-        Order.pag_seguro_payment_method.preferred_email,
-        Order.pag_seguro_payment_method.preferred_token,
-        redirect_url: redirect_url,
-        extra_amount: format("%.2f", (order.total - order.item_total).round(2)),
-        id: order.id)
+      
+      Order.payment_method.preferred_email,
+      Order.payment_method.preferred_token,
+      redirect_url: redirect_url,
+      extra_amount: format("%.2f", (order.total - order.item_total).round(2)),
+      id: order.id)
 
       pag_seguro_payment.items = order.line_items.map do |item|
         pag_seguro_item = ::PagSeguro::Item.new

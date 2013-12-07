@@ -5,8 +5,9 @@ module PagseguroHelper
       redirect_url = Rails.env.development? ? nil : "#{Spree::Config.site_url}/pag_seguro/callback"
 
       pag_seguro_payment = ::PagSeguro::Payment.new(
-        order.available_payment_methods.last.preferred_email,
-        order.available_payment_methods.last.preferred_token,
+        payment_method = Spree::PaymentMethod.find_by type: "Spree::PaymentMethod::Pagseguro"
+        order.payment_method.preferred_email,
+        order.payment_method.preferred_token,
         redirect_url: redirect_url,
         extra_amount: format("%.2f", (order.total - order.item_total).round(2)),
         id: order.id)
