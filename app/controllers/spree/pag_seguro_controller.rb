@@ -1,5 +1,5 @@
 module Spree
-  class PagSeguroController < BaseController
+  class PagSeguroController < Spree::BaseController
     protect_from_forgery :except => [:notify]
     skip_before_filter :restriction_access
     
